@@ -20,10 +20,14 @@ const Client: React.FC<ClientProps> = ({ id, name, slug, removeUser }) => {
   const [isOnline, setOnlineState] = useState<boolean>(false);
 
   const editor = useMemo(() => {
-    const slateEditor = withYjs(withLinks(withReact(withHistory(createEditor()))));
+    const slateEditor = withYjs(
+      withLinks(withReact(withHistory(createEditor())))
+    );
 
     const endpoint =
-      process.env.NODE_ENV === "production" ? window.location.origin : "ws://localhost:9000";
+      process.env.NODE_ENV === "production"
+        ? window.location.origin
+        : "ws://localhost:9000";
 
     const options: WebsocketEditorOptions = {
       endpoint: endpoint,
@@ -59,7 +63,11 @@ const Client: React.FC<ClientProps> = ({ id, name, slug, removeUser }) => {
         </div>
       </Title>
 
-      <EditorFrame editor={editor} value={value} onChange={(value: Node[]) => setValue(value)} />
+      <EditorFrame
+        editor={editor}
+        value={value}
+        onChange={(value: Node[]) => setValue(value)}
+      />
     </Instance>
   );
 };

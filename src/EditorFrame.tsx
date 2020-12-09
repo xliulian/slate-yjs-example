@@ -1,6 +1,12 @@
 import React, { useCallback } from "react";
 import { Node } from "slate";
-import { Editable, ReactEditor, RenderLeafProps, Slate, useSlate } from "slate-react";
+import {
+  Editable,
+  ReactEditor,
+  RenderLeafProps,
+  Slate,
+  useSlate,
+} from "slate-react";
 import { ClientFrame, Icon, IconButton } from "./Components";
 import { isBlockActive, toggleBlock } from "./plugins/block";
 import { insertLink, isLinkActive, unwrapLink } from "./plugins/link";
